@@ -1,0 +1,20 @@
+<odoo>
+  <record id="on_click_producto_form_inherit" model="ir.ui.view">
+    <field name="name">product.template.common.form.inherit</field>
+    <field name="model">on_click.producto</field>
+    <field name="inherit_id" ref="on_click_producto_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//sheet" position="inside">
+        <notebook>
+          <page string="Variantes">
+            <group>
+              <field name="place"/>
+              <field name="extra"/>
+              <field name="total"/>
+            </group>
+          </page>
+        </notebook>
+      </xpath>
+    </field>
+  </record>
+</odoo>

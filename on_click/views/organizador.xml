@@ -1,0 +1,72 @@
+<odoo>
+  <data>
+
+    <!-- Lista -->
+    <record model="ir.ui.view" id="on_click_organizador_list">
+      <field name="name">Organizador list</field>
+      <field name="model">on_click.organizador</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="email" widget="email"/>
+          <field name="tel"/>
+          <field name="roles"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Formulario -->
+    <record model="ir.ui.view" id="on_click_organizador_form">
+      <field name="name">Organizador form</field>
+      <field name="model">on_click.organizador</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+
+            <group name="group_top">
+
+              <group name="group_left">
+                <field name="profile" widget="image" class="oe_left oe_avatar"/>
+
+                <group name="group_right">
+                  <h3><field name="name"/></h3>
+                </group>
+              </group>
+
+            </group>
+
+            <separator color="red" height="2"/>
+            <div class="custom_oe_line_separator"/>
+
+            <group name="group_bottom">
+
+              <group name="group_left">
+                <field name="dni"/>
+                <field name="birthdate"/>
+                <field name="address"/>
+                
+              </group>
+
+              <group name="group_right">
+
+                <field name="tel"/>
+                <field name="email" widget="email"/>
+                <field name="roles"/>
+              </group>
+
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    
+
+    <!-- Acciones -->
+    <record model="ir.actions.act_window" id="organizador_action_window">
+      <field name="name">Organizador</field>
+      <field name="res_model">on_click.organizador</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

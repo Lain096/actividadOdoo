@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from . import models
+from . import persona, cliente, organizador, contrato, producto, lugar, precio

@@ -1,0 +1,50 @@
+Te pongo al tanto:
+
+Los modelos persona, cliente y organizador están finalizados, con 4 constrains y un depends, 
+hay un par de cosas comentadas que aún no he quitado por si te ayudan a ti o a mí en el futuro
+
+Tengo un valor que identifica si el cliente es o no mayor de edad, se llama is_adult, quizá lo quieras usar para restringir lugares o eventos, como quieras la verdad, me vale pito
+
+------------------------------------------------
+
+En cuanto al modelo del precio, he tenido unas complicaciones buenísimas x'D
+
+Al principio quería que precio fuera un extended de evento, pero al añadir el modelo lugar no le veía mucho sentido, hasta que he visto la oportunidad de hacerlo en producto.
+Siendo un extended de producto, podía hacer "variantes de precio" añadiendo una sección para ello, igual que las variantes del inventario de videojuegos.
+
+Entonces, heredando de la clase producto, he creado una página en la vista como la de productos de odoo para las variantes, 
+hasta ahí bien, hasta que me he dado cuenta de que no puedo aplicar la lógica de One2many en un modulo heredado, 
+así que la página es de "variantes" pero solo se puede añadir una xDDD
+Yo lo que haría es implementar mi código en tu vista producto dejando la clase precio y quitando la vista precio.xml, solo sería
+
+1. Descomentar el campo Many2one del modelo precio
+2. Añadir a producto el campo One2many con el precio de comodel_name y el campo variants de inverse_name
+3. Copiar toda la etiqueta "notebook" de mi vista precio.xml y ponerla en tu producto.xml
+
+Dicho esto, tendríamos que hacer otra cosa para el modulo extendido porque es obligatorio el uso de XPath, eso hay que pensarlo :C
+A menos que quieras dejar el precio tal y como te lo he pasado y maquillarlo un poco para que sirva así, no sé
+
+-------------------------------------------------
+
+También he intentado agregar un QWeb, pero no me ha salido ya que solo se debe de aplicar una vez a la vista o algo así, he visto en internet que se usa para informes, así que cuadra más en contrato(?
+Lo podemos dejar para el domingo si nos sobra tiempo, es bastante sencillo de implementar pero es que no se modifica así que no me sirve de nada
+
+-------------------------------------------------
+
+No sé si has estado haciendo tú tu propio menu.xml, pero si no, en el mío están todos los modulos para que solo tengas que descomentarlo y ya lo tengas todo en la barra
+
+En mi módulo también están los modelos contrato y producto pero no hay nada importante así que no te los copies, solo los he creado para comprobar que todo funcionaba con las relaciones
+Aunque en producto tengo el precio asignado con el fields.Monetary, por si te interesa echarle un vistazo
+
+Y por último he estado trasteando un poco con los estilos, pero de momento solo he añadido lo que ya nos ha enseñado Joshua, quería añadir una imagen de fondo pero ni idea de cómo se llama la propiedad de odoo
+Otra cosa que se queda para el domingo TvT
+
+En resumen, no me ha salido lo que más ilusión me hacía tener hecho para hoy, pero al menos mis modelos los tienes
+Así que estos dos días dedícale lo que quieras a tus tres módulos, no hace falta que hagas más, que relacionar todo eso ya es un lío
+Tampoco tienes que añadir ningún widget si no quieres, que yo ya uso los 2 que se piden, solo faltaría por hacer un depends, que seguro que tienes tú por ahí
+Eso sí, si se te ocurre algo para que se extienda en otro modelo dime y me pongo con ello el domingo
+
+
+Recuerda tener en cuenta el init y el manifest si vas a añadir mi código, en el manifest tienes que añadir un par de líneas para que los estilos funcionen
+
+Mucha suerte el sábado, ya siento dejarte así tirado :'C

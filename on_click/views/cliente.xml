@@ -1,0 +1,82 @@
+<odoo>
+  <data>
+
+    <!-- Lista -->
+    <record model="ir.ui.view" id="on_click_cliente_list">
+      <field name="name">Cliente list</field>
+      <field name="model">on_click.cliente</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="email" widget="email"/>
+          <field name="tel"/>
+          <field name="address"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Formulario -->
+    <record model="ir.ui.view" id="on_click_cliente_form">
+      <field name="name">Cliente form</field>
+      <field name="model">on_click.cliente</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group name="group_top">
+
+              <group name="group_left">
+                <field name="name"/>
+                <field name="dni"/>
+                <field name="birthdate"/>
+
+                <!--
+                <div class="oe_inline">
+                  <t t-field="cliente.is_adult" />
+
+                  <t t-if="is_adult == True">
+                    <p>
+                      Es mayor de edad
+                    </p>
+                  </t>
+                  <t t-else="">No es mayor de edad</t>
+                  -->
+                <!--
+                  <label for="is_adult"/>
+                  <span>
+                    <field name="is_adult" />
+                    <t t-if="!record"></t>
+                    <t t-elif="record.is_adult">Es mayor de edad</t>
+                    <t t-else="">No es mayor de edad</t>
+                  </span>
+                </div>
+                  -->
+
+              </group>
+
+              <group name="group_right">
+                  <field name="address"/>
+                  <field name="tel"/>
+                  <field name="email" widget="email"/>
+
+              </group>
+
+            </group>
+
+            <group name="group-bottom">
+              <field name="history"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    
+
+    <!-- Acciones -->
+    <record model="ir.actions.act_window" id="cliente_action_window">
+      <field name="name">Cliente</field>
+      <field name="res_model">on_click.cliente</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

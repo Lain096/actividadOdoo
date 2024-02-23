@@ -25,11 +25,20 @@
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+        'views/cliente.xml',
+        'views/organizador.xml',
+        'views/producto.xml',
+        'views/precio.xml',
+        'views/menu.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
+
+    'assets': {
+        'web.assets_backend': [
+            'on_click/static/src/scss/style.scss',
+        ],
+    },
 }

@@ -8,7 +8,6 @@ class Producto(models.Model):
     _description = 'Los productos que se ofrecen en los eventos'
 
     name = fields.Char(string="Producto")
-    quantity = fields.Integer(string = "Cantidad disponible")
     price = fields.Float(string="Precio del producto")
     image = fields.Image(string="Imagen del producto")
     description = fields.Char(string="Descripcion del producto") 

@@ -9,7 +9,6 @@
         <tree>
           <field name="name"/>
           <field name="description"/>
-          <field name="quantity"/>
           <field name="price"/>
           <!-- <field name="image" /> -->
         </tree>
@@ -25,7 +24,6 @@
             <group name="group_top">
               <group name="group_left">       
                 <field name="name"/>
-                <field name = "quantity"/>
                 <field name="price"/>
               </group>
               <group name ="group_right">
@@ -49,7 +47,6 @@
             <kanban sample="1" >
                 <field name="id"/>
                 <field name="name"/>
-                <field name="quantity"/>
                 <field name="price"/>
                 <progressbar field="activity_state" colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>
                 <templates>
@@ -64,12 +61,12 @@
                                   <div class="o_kanban_record_headings">
                                       <strong class="o_kanban_record_title"><field name="name"/></strong>                            
                                   </div>                                  
-                                </div>     
-                                <div>                                                  
-                                    Cantidad:  <field name="quantity"/>                              
-                                </div>  
+                                </div>
+                                <div>
+                                    <field name="description"/>
+                                </div>
                                 <div>                           
-                                    Precio:  <field name="price" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}"/> €
+                                    Precio:  <field name="price" widget="monetary" options="{'currency_field': 'currency_id'}"/> €
                                 </div>                        
                             </div>
                             

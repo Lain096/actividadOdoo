@@ -14,6 +14,16 @@
       </field>
     </record>
 
+      <!-- No Funciona, no se puede hacer, ya que peta por que dice que NO EXISTE la directiva t-if
+       <t t-if="record.product">
+           <field name="product"/>
+       </t>
+        <t t-else="">
+            <div>No has añadido Productos</div>
+        </t>
+
+        -->
+
     <record model="ir.ui.view" id="on_click_contrato_form">
       <field name="name">on_click.contrato.form</field>
       <field name="model">on_click.contrato</field>
@@ -22,13 +32,15 @@
           <sheet>
             <group name="group_top">
               <field name="name"/>
-              <group name="group_left">       
-               <field name="product"/>
+              <group name="group_left">
+                  <field name="product"/>
               </group>
               <group name ="group_right">
                 <field name="event"/>
+                    <field name="client"/>
+                   <field name="organizer"/>
               </group>
-                <field name="client"/>
+                <field name="price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
             </group>
           </sheet>       
         </form>
@@ -40,10 +52,83 @@
       <field name="name">Contrato</field>
       <field name="res_model">on_click.contrato</field>
       <field name="view_mode">tree,form</field>
-
-
     </record>
 
+      <record id="report_contrato_cliente" model="ir.actions.report">
+          <field name="name">Reporte de Contrato</field>
+          <field name="model">on_click.contrato</field>
+          <field name="report_type">qweb-pdf</field>
+          <field name="report_name">on_click.report_contrato</field>
+          <field name="report_file">on_click.report_contrato</field>
+          <field name="binding_model_id" ref="model_on_click_contrato"/>
+          <field name ="binding_type">report</field>
+      </record>
+
+      <template id="report_contrato">
+          <t t-call="web.html_container">
+              <t t-foreach="docs" t-as="o">
+
+                            <div><h1 style="text-alignment: center">INFORME DEL EVENTO</h1></div>
+
+                            <div name="name_event">
+                                <h2 style="text-alignment: center"> Nombre del evento</h2>
+                                <div><t t-esc="o.name"/></div>
+                            </div>
+                              <div name="details_Client">
+                                  <h2 style="text-alignment: center"> Detalles del Cliente</h2>
+                                  <div>
+                                      <ul>
+                                          <li>Nombre <t t-esc="o.client.name"/></li>
+                                          <li>DNI <t t-esc="o.client.dni"/></li>
+                                          <li>Email <t t-esc="o.client.email"/></li>
+                                          <li>Direccion <t t-esc="o.client.address"/></li>
+                                          <li>Telefono <t t-esc="o.client.tel"/></li>
+                                      </ul>
+                                  </div>
+                              </div>
+                              <div name="details_Organizer">
+                                  <h2 style="text-alignment: center"> Detalles del Organizador</h2>
+                                  <div>
+                                      <ul>
+                                          <li>Nombre <t t-esc="o.organizer.name"/></li>
+                                          <li>DNI <t t-esc="o.organizer.dni"/></li>
+                                          <li>Email <t t-esc="o.organizer.email"/></li>
+                                      </ul>
+                                  </div>
+                              </div>
+                            <div name="details_Event">
+                                <h2 style="text-alignment: center"> Detalles del Evento</h2>
+                                <div>
+                                    <ul>
+                                        <li>Nombre <t t-esc="o.event.name"/></li>
+                                        <li>Descripción <t t-esc="o.event.description"/></li>
+                                        <li>Precio <t t-esc="o.event.price"/></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div name="details_Products">
+                                <h2 style="text-alignment: center"> Detalles de los Productos</h2>
+                                <div>
+                                    <t t-foreach="o.product" t-as="p">
+                                        <ul>
+                                            <li>Nombre <t t-esc="p.name"/></li>
+                                            <li>Descripción <t t-esc="p.description"/></li>
+                                            <li>Precio <t t-esc="p.price"/></li>
+                                        </ul>
+                                    </t>
+                                </div>
+                            </div>
+                            <div name="price" style="margin-top: 50px">
+                                Precio Total
+                                <div><t t-esc="o.price"/></div>
+                            </div>
+
+
+
+
+              </t>
+          </t>
+      </template>
 
 
 

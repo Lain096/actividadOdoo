@@ -22,13 +22,14 @@ Long description of module's purpose
 
     # always loaded
     'data': [
-        #'security/ir.model.access.csv',
+        # 'security/ir.model.access.csv',
 
         'views/cliente.xml',
         'views/organizador.xml',
         'views/place.xml',
         'views/producto.xml',
         'views/evento.xml',
+        'views/evento_extended.xml',
         'views/contrato.xml',
         'views/menu.xml',
 
@@ -38,5 +39,11 @@ Long description of module's purpose
     'demo': [
         'demo/demo.xml',
     ],
+
+    'assets': {
+        'web.assets_backend': [
+            'on_click/static/src/scss/style.scss',
+        ],
+    },
 }
 

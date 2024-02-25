@@ -1,0 +1,22 @@
+// Separador hecho por Joshua
+.custom_oe_line_separator {
+    display: block;
+    border-bottom: 1px solid #eaeaea; /* Color de la línea */
+    margin-top: 10px; /* Espacio superior */
+    margin-bottom: 10px; /* Espacio inferior */
+}
+
+// Main
+.o_main {
+    background-color: aqua;
+}
+
+// Forms
+.o_form_view {
+    background-color: #AED6F1; /* Cambia este valor al color deseado */
+}
+
+// Filas alternas de una tabla
+.o_list_view .o_list_table .o_data_row:nth-child(even) {
+    background-color: #e1c4ee;
+}

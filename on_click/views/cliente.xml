@@ -9,7 +9,7 @@
         <tree>
           <field name="name"/>
           <field name="email" widget="email"/>
-          <field name="tel"/>
+          <field name="tel" widget="phone"/>
           <field name="address"/>
         </tree>
       </field>
@@ -28,34 +28,11 @@
                 <field name="name"/>
                 <field name="dni"/>
                 <field name="birthdate"/>
-
-                <!--
-                <div class="oe_inline">
-                  <t t-field="cliente.is_adult" />
-
-                  <t t-if="is_adult == True">
-                    <p>
-                      Es mayor de edad
-                    </p>
-                  </t>
-                  <t t-else="">No es mayor de edad</t>
-                  -->
-                <!--
-                  <label for="is_adult"/>
-                  <span>
-                    <field name="is_adult" />
-                    <t t-if="!record"></t>
-                    <t t-elif="record.is_adult">Es mayor de edad</t>
-                    <t t-else="">No es mayor de edad</t>
-                  </span>
-                </div>
-                  -->
-
               </group>
 
               <group name="group_right">
                   <field name="address"/>
-                  <field name="tel"/>
+                  <field name="tel" widget="phone"/>
                   <field name="email" widget="email"/>
 
               </group>

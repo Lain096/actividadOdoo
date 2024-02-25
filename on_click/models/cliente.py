@@ -10,5 +10,3 @@ class Cliente(models.Model):
 
 
     history = fields.One2many(comodel_name="on_click.contrato", inverse_name="client", string="Contrato")
-
-

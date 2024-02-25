@@ -8,86 +8,70 @@
             sequence="12"/>
 
 
-
-       <!-- Menú de la barra de herramientas principal-->
-
-        <menuitem id="menu_clientes_root"
-                  name="Personas"
-                    parent="menu_root"
-                    sequence="1"/>
-
-        <menuitem id="menu_producto_root"
-                  name="Productos"
-                    parent="menu_root"
-                    sequence="2"/>
-
-        <menuitem id="menu_contrato_root"
-                  name="Contrato"
-                    parent="menu_root"
-                    sequence="3"/>
+        <!-- Menú de la barra de herramientas principal-->
+        <menuitem id ="menu_eventos_root"
+            name ="Diego"
+            sequence="12"
+            parent="menu_root"
+        />
 
 
+        <menuitem id="menu_on_click_root"
+        name="Lucia"
+        sequence="11"
+        parent = "menu_root"/>
 
-        <!-- Menu Personas -->
 
-        <menuitem id="menu_cliente_template"
+ <menuitem id="on_click_menu_personas"
+        name="Personas"
+        parent="menu_on_click_root"
+        sequence="1"/>
+
+    <!-- Personas -->
+
+
+    <menuitem id="menu_cliente_template"
         name="Clientes"
-        parent="menu_clientes_root"
+        parent="on_click_menu_personas"
         sequence="1"
         action="cliente_action_window"/>
 
     <menuitem id="menu_organizador_template"
         name="Organizadores"
-        parent="menu_clientes_root"
+        parent="on_click_menu_personas"
         sequence="2"
         action="organizador_action_window"/>
 
-        <!-- Menu Producto -->
+
+
+ <!-- Menú de la barra de herramientas principal-->
+        <menuitem id ="menu_contrato"
+        name ="Lista Contrato"
+        sequence="1"
+        parent="menu_eventos_root"
+        action="on_click_contrato_window"
+        />
+        
+        <menuitem id ="menu_evento"
+        name ="Lista Eventos"
+        sequence="2"
+        parent="menu_eventos_root"
+        action="on_click_evento_window"
+        />
 
         <menuitem id="menu_producto"
         name ="Lista Productos"
-        sequence="1"
-        parent="menu_producto_root"
+        sequence="3"
+        parent="menu_eventos_root"
         action="on_click_producto_window"
         />
 
           <menuitem id="menu_lugares"
         name ="Lista Lugares"
-        sequence="2"
-        parent="menu_producto_root"
+        sequence="4"
+        parent="menu_eventos_root"
         action="on_click_place_window"
         />
-
-        <!-- Menu COntratos -->
-
-
-        <menuitem id ="menu_contrato"
-        name ="Contrato"
-        sequence="1"
-        parent="menu_contrato_root"
-        action="on_click_contrato_window"
-        />
-
-        <menuitem id ="menu_evento"
-        name ="Eventos"
-        sequence="2"
-        parent="menu_contrato_root"
-        action="on_click_evento_window"
-        />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </data>
 </odoo>

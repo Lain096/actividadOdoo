@@ -13,7 +13,7 @@ class Persona(models.Model):
 
     name = fields.Char(string="Nombre", required=True)
     email = fields.Char(string="Correo Electrónico")
-    tel = fields.Integer(string="Teléfono")
+    tel = fields.Char(string="Teléfono")
     dni = fields.Char(string="DNI", required=True)
     birthdate = fields.Date(string="Fecha de nacimiento")
     address = fields.Char(string="Dirección")
@@ -68,22 +68,3 @@ class Persona(models.Model):
             d2 = datetime.date.today()
             age = relativedelta(d2, d1).years
             self.is_adult = age >=18
-
-'''
-    @api.depends('birthdate')
-    def _compute_mayor_de_edad(self):
-        today = fields.Date.today()
-        for record in self:
-            if record.birthdate:
-                birth_date = datetime.strptime(record.birthdate, '%Y-%m-%d')
-                age = today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
-                record.is_adult = age >= 18
-            else:
-                record.is_adult = False
-
-    # Si el cliente es mayor de edad
-    @api.depends('age')
-    def _compute_mayor_de_edad(self):
-        for record in self:
-            record.is_adult = record.age and record.age >= 18 or False
-'''

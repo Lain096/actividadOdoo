@@ -19,3 +19,4 @@
 #         return http.request.render('on_click.object', {
 #             'object': obj
 #         })
+

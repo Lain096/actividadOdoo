@@ -1,5 +1,56 @@
 <odoo>
   <data>
+
+  <record model="ir.ui.view" id="on_click_contrato_list">
+      <field name="name">on_click_contrato_list</field>
+      <field name="model">on_click.contrato</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+            <field name="client"/>
+          <field name="product"/>
+          <field name="event"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="on_click_contrato_form">
+      <field name="name">on_click.contrato.form</field>
+      <field name="model">on_click.contrato</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group name="group_top">
+              <field name="name"/>
+              <group name="group_left">       
+               <field name="product"/>
+              </group>
+              <group name ="group_right">
+                <field name="event"/>
+              </group>
+                <field name="client"/>
+            </group>
+          </sheet>       
+        </form>
+      </field>
+    </record>
+
+
+     <record model="ir.actions.act_window" id="on_click_contrato_window">
+      <field name="name">Contrato</field>
+      <field name="res_model">on_click.contrato</field>
+      <field name="view_mode">tree,form</field>
+
+
+    </record>
+
+
+
+
+
+
+
+
     <!-- explicit list view definition -->
 <!--
     <record model="ir.ui.view" id="on_click.list">

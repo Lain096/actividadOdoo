@@ -1,0 +1,98 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="on_click_evento_list">
+      <field name="name">on_click_evento_list</field>
+      <field name="model">on_click.evento</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="place"/>
+          <field name="max_people"/>
+          <field name="date_start" widget="date"/>
+          <field name="date_end" widget="date"/>
+          <field name="price" widget="monetary"/>
+          <field name="description"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="on_click_evento_form">
+      <field name="name">on_click.evento.form</field>
+      <field name="model">on_click.evento</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group name="group_top">
+              <group name="group_left">       
+                <field name="name"/>
+                <field name = "place"/>
+                <field name="max_people"/>
+              </group>
+              <group name ="group_right">
+                <field name="image" widget="image" class="oe_avatar oe_left"/>
+                <field name="date_start" widget="date"/>
+                <field name="date_end" widget="date"/>
+                <field name="price" widget="monetary"/>
+              </group>
+              <field name="description"/>
+            </group>
+          </sheet>       
+        </form>
+      </field>
+    </record>
+
+    
+    <record model="ir.actions.act_window" id="on_click_evento_window">
+      <field name="name">Evento</field>
+      <field name="res_model">on_click.evento</field>
+      <field name="view_mode">tree,form</field>
+
+
+    </record>
+
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="on_click.action_window">
+      <field name="name">OnClick window</field>
+      <field name="res_model">on_click.on_click</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="on_click.action_server">
+      <field name="name">OnClick server</field>
+      <field name="model_id" ref="model_on_click_on_click"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="OnClick" id="on_click.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="on_click.menu_1" parent="on_click.menu_root"/>
+    <menuitem name="Menu 2" id="on_click.menu_2" parent="on_click.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="on_click.menu_1_list" parent="on_click.menu_1"
+              action="on_click.action_window"/>
+    <menuitem name="Server to list" id="on_click" parent="on_click.menu_2"
+              action="on_click.action_server"/>
+-->
+  </data>
+</odoo>

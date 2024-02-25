@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from . import persona,cliente, organizador, Lugar, Producto, Evento, Contrato
+from . import persona, cliente, organizador, lugar, producto, evento, contrato, evento_extended

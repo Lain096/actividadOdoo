@@ -20,7 +20,7 @@
       <field name="name">Organizador form</field>
       <field name="model">on_click.organizador</field>
       <field name="arch" type="xml">
-        <form>
+        <form class="fondo">
           <sheet>
 
             <group name="group_top">
@@ -49,7 +49,7 @@
 
               <group name="group_right">
 
-                <field name="tel"/>
+                <field name="tel" widget="phone"/>
                 <field name="email" widget="email"/>
                 <field name="roles"/>
               </group>

@@ -10,8 +10,7 @@
           <field name="name"/>
           <field name="place"/>
           <field name="max_people"/>
-          <field name="date_start" widget="date"/>
-          <field name="date_end" widget="date"/>
+          <field name="date_end" widget="remaining_days"/>
           <field name="price" widget="monetary"/>
           <field name="description"/>
         </tree>

@@ -1,0 +1,25 @@
+<odoo>
+  <!-- Vista form -->
+  <record id="on_click_evento_form_inherit" model="ir.ui.view">
+    <field name="name">evento.template.common.form.inherit</field>
+    <field name="model">on_click.evento</field>
+    <field name="inherit_id" ref="on_click_evento_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='name']" position="before">
+        <field name="state"/>
+      </xpath>
+    </field>
+  </record>
+
+  <!-- Vista tree -->
+  <record id="on_click_evento_tree_inherit" model="ir.ui.view">
+    <field name="name">evento.template.common.tree.inherit</field>
+    <field name="model">on_click.evento</field>
+    <field name="inherit_id" ref="on_click_evento_list"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='name']" position="after">
+        <field name="state" widget="badge"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>
